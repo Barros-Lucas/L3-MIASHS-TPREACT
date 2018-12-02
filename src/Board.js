@@ -8,7 +8,8 @@ class Board extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tab : []
+      tab : [],
+      cartes : []
 
 
     };
@@ -16,27 +17,21 @@ class Board extends Component {
 
   getChampions(){
     var random = 1;
-    for(let id in champ.data.id){
-      console.log(id)
-      console.log(random)
-    }
+    //met dans le tab 3 noms au hazard, fixer pour le moment
+    this.state.tab = [
+    {id:266, name: 'Aatrox'},
+    {id:103,name: 'Ahri'},
+    {id:86,name: 'Akali'}
+];
 }
-    // fetch("champions.json")
-    //     .then(response => response.json())
-    //     .then(response => {
-    //       this.champion = Object.keys(response.data);
-    //
-    //         let randIndex = 1;
-    //         this.randChamp.push({
-    //           name: this.champion[randIndex],
-    //           src: this.champion[randIndex] + "_0.jpg",
-    //           flip:false
-    //         });
-    //       });
-    //       return this.randChamp[0];
 
-coucou(){
-  return <Card></Card>
+makeBoard(){
+  const champions = this.state.tab.name[0];
+  for(var champion in champions){
+    console.log(champion)
+    this.state.cartes.push(<Card name={champion} ></Card>);
+  }
+return this.state.cartes
 }
   render() {
 
@@ -45,12 +40,9 @@ coucou(){
 
       <section className="card-columns ">
       {this.getChampions()}
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
+      {console.log(this.state.tab)}
+      {this.makeBoard()}
+
 
 
       </section>

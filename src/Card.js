@@ -6,10 +6,7 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name : "Tresh",
-      url : "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_0.jpg",
-      isFlipped : false
-
+      isFlipped : false,
 
     };
   }
@@ -17,8 +14,8 @@ class Card extends Component {
   render() {
     return (
       <div className="card bg-dark text-white border-warning border-3">
-          <img className="card-img" src={this.state.url}/>
-          <p className="card-text">{this.state.name}</p>
+          <img className="card-img" src={"https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+this.props.name+"_0.jpg" }/>
+          <p className="card-text">{this.props.name}</p>
       </div>
     );
   }
