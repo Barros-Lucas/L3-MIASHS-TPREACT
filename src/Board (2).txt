@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+import './Board.css';
+import Card from './Card';
+//import champ from './champions.json';
+
+
+class Board extends Component {
+
+
+  render() {
+    fetch('./champions.json')
+            .then(response => {
+              response = response.json();
+              console.log(response);
+            });
+
+    return (
+
+      <section className="card-columns ">
+          <Card></Card>
+      </section>
+    );
+  }
+}
+
+export default Board;
